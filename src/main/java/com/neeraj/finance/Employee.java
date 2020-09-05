@@ -55,6 +55,10 @@ class Employee {
 		if (!(o instanceof Employee))
 			return false;
 		Employee employee = (Employee) o;
+		
+		// Returns true if the arguments are equal to each other and false otherwise. 
+		// Consequently, if both arguments are null, true is returned and if exactly one argument is null, false is returned. 
+		// Otherwise, equality is determined by using the equals method of the first argument.
 		return Objects.equals(this.id, employee.id) && Objects.equals(this.name, employee.name)
 				&& Objects.equals(this.role, employee.role);
 	}
