@@ -38,10 +38,14 @@ class EmployeeController {
 
 	@GetMapping("/employees/{id}")
 	Employee one(@PathVariable Long id) {
-
+		// `EmployeeNotFoundException` is an exception used to indicate when an employee is looked up but not found.
 		return repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
 	}
 
+	/*
+	 In this situation, `replace` is a better description than `update`. 
+	 For example, if the "name" is NOT provided in request body, it would instead get nulled out.
+	*/
 	@PutMapping("/employees/{id}")
 	Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
 
