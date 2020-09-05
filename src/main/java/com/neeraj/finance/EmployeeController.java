@@ -38,7 +38,7 @@ class EmployeeController {
 
 	@GetMapping("/employees/{id}")
 	Employee one(@PathVariable Long id) {
-
+		// `EmployeeNotFoundException` is an exception used to indicate when an employee is looked up but not found.
 		return repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
 	}
 
