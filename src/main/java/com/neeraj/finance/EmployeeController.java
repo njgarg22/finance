@@ -42,6 +42,10 @@ class EmployeeController {
 		return repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
 	}
 
+	/*
+	 In this situation, `replace` is a better description than `update`. 
+	 For example, if the "name" is NOT provided in request body, it would instead get nulled out.
+	*/
 	@PutMapping("/employees/{id}")
 	Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
 
